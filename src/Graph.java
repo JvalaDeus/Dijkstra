@@ -1,81 +1,62 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-
 
 public class Graph {
+	HashMap<String, HashMap<String, Integer>> nodesOnGraph = new HashMap<String, HashMap<String, Integer>>();
 
-	private HashMap<String, ArrayList<String>> adjacencies;
-	private HashMap<String, HashMap<String, Integer>> nodeDistances;
-	
 	public static void main(String[] args) {
-		
-		Dijkstra myd = new Dijkstra(threeNodes.nodeDistances, "A");
-		HashMap<String,String> paths = myd.path;
-		// shortest path from "A" to "B" is:
-		
-		ArrayList<String> myPath = new ArrayList<String>();
-		String nodeInPath = "B";
-		myPath.add(nodeInPath);
-		while(!nodeInPath.equals("A")){
-		   nodeInPath = paths.get(nodeInPath);
-		   myPath.add(nodeInPath);
-		}
-		
-		// Create a graph like on the board:
-		// A to b and c
-		// B to nothing
-		// c to a.
-		Graph threeNodes = new Graph();
-		threeNodes.nodeDistances = new HashMap<String, HashMap<String, Integer>>();
-		threeNodes.adjacencies = new HashMap<String, ArrayList<String>>();
-		ArrayList<String> BC = new ArrayList<String>();
-		BC.add("B");
-		BC.add("C");
-		ArrayList<String> AList = new ArrayList<String>();
-		AList.add("A");
-		threeNodes.adjacencies.put("A", BC);
-		threeNodes.adjacencies.put("B", null);
-		threeNodes.adjacencies.put("C", AList);
-		// What is the set of nodes connected from A?
-		
-		//System.out.println(threeNodes.adjacencies.get("A"));
-		// we would like to be able to set the distance between two nodes 
-		// that are linked....
-		HashMap<String, Integer> nodeAdistances = new HashMap<String,Integer>();
-		HashMap<String, Integer> nodeBdistances = new HashMap<String,Integer>();
-		HashMap<String, Integer> nodeCdistances = new HashMap<String,Integer>();
-		nodeAdistances.put("B",  3);
-		nodeAdistances.put("C",  1);
-		nodeCdistances.put("B",  1);
-		nodeCdistances.put("A",  4);
-	    threeNodes.nodeDistances.put("A", nodeAdistances);
-	    threeNodes.nodeDistances.put("B", nodeBdistances);
-	    threeNodes.nodeDistances.put("C", nodeCdistances);
-	    
-	    // suppose we are just given "A" can we do Dijkstra using only nodeDistances
-	    // and not adjacencies (I think yes)
-	    
-	    HashMap<String, Integer> gotAdistances = threeNodes.nodeDistances.get("A");
-	    
-	    System.out.println(threeNodes.nodeDistances.get("A")); // this drops the hashmap to adjacent nodes for A on the floor
-	
-		
-	    // but how do I get the distance to the node that is the first node 
-	    // in gotAdistances???? (nodeBdistances)
-	    
-	    Iterator<String> keysetiterator = gotAdistances.keySet().iterator();
-	    
-	    System.out.println(keysetiterator.next());
-	    
-		// getDistance returns -1 if there is no *direct* link from "A" to "B"
-	    Dijkstra myd = new Dijkstra(threeNodes.nodeDistances, "A");	
-		
-		
-		//System.out.println(threeNodes.myGraph.getDistance("A", "B"));
-		
-		
-
+		Graph graph = new Graph();
 	}
 
+	public Graph() {
+
+		HashMap<String, Integer> nodeA = new HashMap<String, Integer>();
+		HashMap<String, Integer> nodeB = new HashMap<String, Integer>();
+		HashMap<String, Integer> nodeC = new HashMap<String, Integer>();
+		HashMap<String, Integer> nodeD = new HashMap<String, Integer>();
+		HashMap<String, Integer> nodeF = new HashMap<String, Integer>();
+		HashMap<String, Integer> nodeG = new HashMap<String, Integer>();
+
+		nodeA.put("A", 0);
+		nodeA.put("C", 2);
+		nodeA.put("G", 3);
+		nodeA.put("F", 7);
+
+		nodeB.put("B", 0);
+		nodeB.put("G", 6);
+		nodeB.put("F", 7);
+		nodeB.put("D", 9);
+
+		nodeC.put("C", 0);
+		nodeC.put("A", 6);
+		nodeC.put("D", 13);
+
+		nodeD.put("D", 0);
+		nodeD.put("F", 2);
+		nodeD.put("C", 2);
+
+		nodeF.put("F", 0);
+		nodeF.put("A", 3);
+		nodeF.put("C", 15);
+		nodeF.put("D", 31);
+
+		nodeG.put("G", 0);
+		nodeG.put("A", 1);
+		nodeG.put("B", 3);
+		nodeG.put("F", 6);
+
+		nodesOnGraph.put("A", nodeA);
+		nodesOnGraph.put("B", nodeB);
+		nodesOnGraph.put("C", nodeC);
+		nodesOnGraph.put("D", nodeD);
+		nodesOnGraph.put("F", nodeF);
+		nodesOnGraph.put("G", nodeG);
+
+		getGraph();
+	}
+
+	public HashMap<String, HashMap<String, Integer>> getGraph() {
+		System.out.println("Here are the connections for node A: "
+				+ nodesOnGraph.get("A"));
+		return nodesOnGraph;
+	}
 }

@@ -30,7 +30,7 @@ public interface Shorty {
 		while (!shortestPath.contains(dijkstra.startNode)) {
 
 			shortestPath.add(targetNode);
-			targetNode = dijkstra.pv.get(dijkstra.nodeIndices.indexOf(targetNode));
+			targetNode = dijkstra.prev.get(dijkstra.nodeIndices.indexOf(targetNode));
 
 		}
 
