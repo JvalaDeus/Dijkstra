@@ -47,18 +47,20 @@ public class Graph {
 		getGraph();
 	}
 
-
 	public HashMap<String, HashMap<String, Integer>> getGraph() {
-		Set entrySet = nodesOnGraph.entrySet();
-		Iterator it = entrySet.iterator();
+		Set<?> entrySet = nodesOnGraph.entrySet();
+		Iterator<?> it = entrySet.iterator();
 
 		while (it.hasNext()) {
+			@SuppressWarnings("rawtypes")
 			Map.Entry me = (Map.Entry) it.next();
 			System.out.println("Key  is  " + me.getKey());
 			System.out.println("Value is " + me.getValue());
+			@SuppressWarnings("unchecked")
 			Iterator<Map.Entry<String, HashMap<String, Integer>>> child = ((HashMap<String, HashMap<String, Integer>>) me
 					.getValue()).entrySet().iterator();
 			while (child.hasNext()) {
+				@SuppressWarnings({ "rawtypes", "unused" })
 				Map.Entry childPair = child.next();
 			}
 
