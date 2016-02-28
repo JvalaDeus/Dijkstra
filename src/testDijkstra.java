@@ -4,7 +4,8 @@ public class testDijkstra {
 
 	public static void main(String[] args) {
 		Graph graphObject = new Graph();
-		HashMap<String, HashMap<String, Integer>> graph = Graph.getGraph();
-		// Dijkstra dijkstra = new Dijkstra(graph);
+		System.out.println(graphObject);
+	   	HashMap<String, HashMap<String, Integer>> testGraph = graphObject.getGraph();
+		Dijkstra dijkstra = new Dijkstra(testGraph);
 	}
 }

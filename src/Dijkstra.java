@@ -15,9 +15,9 @@ public class Dijkstra implements Shorty {
 											// indices of various nodes
 
 	public Dijkstra(HashMap<String, HashMap<String, Integer>> graph) {
-		init();
+		init(graph);
 		buildingGraph();
-		// nodes and prev are equivalent to path as follows
+		// nodes a prev are equivalent to path as follows
 		/**
 		 * take one node and enter value into nodename, prevnode, start
 		 * nodedistance while loop to continously fill arraylists up and update
@@ -25,15 +25,15 @@ public class Dijkstra implements Shorty {
 		 */
 	}
 
-	public void init() {
+	public void init(HashMap<String, HashMap<String, Integer>> graph) {
 		// setting all 6 nodes to false in the k arraylist, as none are selected
 		// nodes yet
-		k.add(0, false);
-		k.add(1, false);
-		k.add(2, false);
-		k.add(3, false);
-		k.add(4, false);
-		k.add(5, false);
+		k.add(false);
+		k.add(false);
+		k.add(false);
+		k.add(false);
+		k.add(false);
+		k.add(false);
 
 		// adding all the nodes in the nodeNames arrayList
 		nodeNames.add(0, "A");

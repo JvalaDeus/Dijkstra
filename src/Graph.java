@@ -44,7 +44,8 @@ public class Graph {
 		nodesOnGraph.put("E", nodeE);
 		nodesOnGraph.put("F", nodeF);
 
-		getGraph();
+//		getGraph();
+		System.out.println("in contructor" + nodesOnGraph);
 	}
 
 	public HashMap<String, HashMap<String, Integer>> getGraph() {
