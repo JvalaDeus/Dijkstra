@@ -1,15 +1,16 @@
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 public class Graph {
 	HashMap<String, HashMap<String, Integer>> nodesOnGraph = new HashMap<String, HashMap<String, Integer>>();
 
 	public static void main(String[] args) {
-		Graph graph = new Graph();
+	
 	}
 
 	public Graph() {
-
 		HashMap<String, Integer> nodeA = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeB = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeC = new HashMap<String, Integer>();
@@ -22,25 +23,20 @@ public class Graph {
 		nodeA.put("F", 3);
 		nodeA.put("E", 7);
 
-		nodeB.put("B", 0);
 		nodeB.put("F", 6);
 		nodeB.put("E", 7);
 		nodeB.put("D", 9);
 
-		nodeC.put("C", 0);
 		nodeC.put("A", 6);
 		nodeC.put("D", 13);
 
-		nodeD.put("D", 0);
 		nodeD.put("E", 2);
 		nodeD.put("C", 2);
 
-		nodeE.put("E", 0);
 		nodeE.put("A", 3);
 		nodeE.put("C", 15);
 		nodeE.put("D", 31);
 
-		nodeF.put("F", 0);
 		nodeF.put("A", 1);
 		nodeF.put("B", 3);
 		nodeF.put("E", 6);
@@ -56,10 +52,24 @@ public class Graph {
 	}
 
 	public HashMap<String, HashMap<String, Integer>> getGraph() {
-		System.out.println("Here are the connections for node A: "
-				+ nodesOnGraph.get("A"));
-		Set keys = nodesOnGraph.keySet();
-		System.out.println(keys);
+		Set entrySet = nodesOnGraph.entrySet();
+		Iterator it = entrySet.iterator();
+
+		while (it.hasNext()) {
+			Map.Entry me = (Map.Entry) it.next();
+			System.out.println("Key  is  " + me.getKey());
+			System.out.println("Value is " + me.getValue());
+			Iterator<Map.Entry<String, HashMap<String, Integer>>> child = ((HashMap<String, HashMap<String, Integer>>) me
+					.getValue()).entrySet().iterator();
+			while (child.hasNext()) {
+				Map.Entry childPair = child.next();
+				// System.out.println("childPair.getKey() :   "
+				// + childPair.getKey() + " childPair.getValue()  :  "
+				// + childPair.getValue());
+			}
+
+		}
+
 		return nodesOnGraph;
 	}
 }
