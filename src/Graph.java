@@ -6,10 +6,6 @@ import java.util.Set;
 public class Graph {
 	HashMap<String, HashMap<String, Integer>> nodesOnGraph = new HashMap<String, HashMap<String, Integer>>();
 
-	public static void main(String[] args) {
-	
-	}
-
 	public Graph() {
 		HashMap<String, Integer> nodeA = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeB = new HashMap<String, Integer>();
@@ -51,6 +47,7 @@ public class Graph {
 		getGraph();
 	}
 
+
 	public HashMap<String, HashMap<String, Integer>> getGraph() {
 		Set entrySet = nodesOnGraph.entrySet();
 		Iterator it = entrySet.iterator();
@@ -63,9 +60,6 @@ public class Graph {
 					.getValue()).entrySet().iterator();
 			while (child.hasNext()) {
 				Map.Entry childPair = child.next();
-				// System.out.println("childPair.getKey() :   "
-				// + childPair.getKey() + " childPair.getValue()  :  "
-				// + childPair.getValue());
 			}
 
 		}
