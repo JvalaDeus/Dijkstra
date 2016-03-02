@@ -1,12 +1,16 @@
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
+/**
+ * @author akhil
+ * This class creates the graph that Dijkstra's algorithm will run on.
+ */
 public class Graph {
+	// creates the graph through a hashmap The hashmap contains another hashmap.
+	// It goes <NodeName, <Node connected to the nodename, distance between the
+	// two>
 	HashMap<String, HashMap<String, Integer>> nodesOnGraph = new HashMap<String, HashMap<String, Integer>>();
 
 	public Graph() {
+		// the 6 nodes
 		HashMap<String, Integer> nodeA = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeB = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeC = new HashMap<String, Integer>();
@@ -14,6 +18,7 @@ public class Graph {
 		HashMap<String, Integer> nodeE = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeF = new HashMap<String, Integer>();
 
+		// the distance between each node and the nodes it is directly connected to
 		nodeA.put("C", 2);
 		nodeA.put("F", 3);
 		nodeA.put("E", 7);
@@ -36,6 +41,7 @@ public class Graph {
 		nodeF.put("B", 3);
 		nodeF.put("E", 6);
 
+		// puts the nodes and their connections on the graph
 		nodesOnGraph.put("A", nodeA);
 		nodesOnGraph.put("B", nodeB);
 		nodesOnGraph.put("C", nodeC);
@@ -43,12 +49,11 @@ public class Graph {
 		nodesOnGraph.put("E", nodeE);
 		nodesOnGraph.put("F", nodeF);
 
-		// System.out.println("in contructor" + nodesOnGraph);
-		// System.out.println("testing startnode " +nodesOnGraph.get("A"));
 	}
 
+	// gets the graph and prints it out to see how it looks.
 	public HashMap<String, HashMap<String, Integer>> getGraph() {
-		System.out.println(nodesOnGraph);
+		System.out.println("Graph Below" + "\n" + nodesOnGraph);
 		return nodesOnGraph;
 	}
 }
