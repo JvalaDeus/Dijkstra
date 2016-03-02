@@ -14,7 +14,6 @@ public class Graph {
 		HashMap<String, Integer> nodeE = new HashMap<String, Integer>();
 		HashMap<String, Integer> nodeF = new HashMap<String, Integer>();
 
-		nodeA.put("A", 0);
 		nodeA.put("C", 2);
 		nodeA.put("F", 3);
 		nodeA.put("E", 7);
@@ -44,29 +43,12 @@ public class Graph {
 		nodesOnGraph.put("E", nodeE);
 		nodesOnGraph.put("F", nodeF);
 
-//		getGraph();
-		System.out.println("in contructor" + nodesOnGraph);
+		// System.out.println("in contructor" + nodesOnGraph);
+		// System.out.println("testing startnode " +nodesOnGraph.get("A"));
 	}
 
 	public HashMap<String, HashMap<String, Integer>> getGraph() {
-		Set<?> entrySet = nodesOnGraph.entrySet();
-		Iterator<?> it = entrySet.iterator();
-
-		while (it.hasNext()) {
-			@SuppressWarnings("rawtypes")
-			Map.Entry me = (Map.Entry) it.next();
-			System.out.println("Key  is  " + me.getKey());
-			System.out.println("Value is " + me.getValue());
-			@SuppressWarnings("unchecked")
-			Iterator<Map.Entry<String, HashMap<String, Integer>>> child = ((HashMap<String, HashMap<String, Integer>>) me
-					.getValue()).entrySet().iterator();
-			while (child.hasNext()) {
-				@SuppressWarnings({ "rawtypes", "unused" })
-				Map.Entry childPair = child.next();
-			}
-
-		}
-
+		System.out.println(nodesOnGraph);
 		return nodesOnGraph;
 	}
 }
